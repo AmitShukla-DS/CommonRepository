@@ -1,0 +1,19 @@
+#!groovy
+
+// import global jenkins pipeline definition
+@Library("xems-jenkins-lib@master") _
+
+// repo values
+def codeartifact_repo = ""
+def sonarQube_repo = "udal"
+def oss_repo = ""
+def sast_repo = ""
+
+// configurable values
+boolean run_unittests = true
+boolean run_quality_scan = true
+boolean run_oss_scan = true
+boolean run_sast_scan = true
+
+xems_pipeline_backend (codeartifact_repo, sonarQube_repo, oss_repo, sast_repo, run_unittests, run_oss_scan, run_sast_scan, run_quality_scan)
+

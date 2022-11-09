@@ -1,0 +1,1 @@
+mvn install:install-file -Dfile=encrypt-decrypt-util.jar -DgroupId=com.lnt -DartifactId=encrypt-decrypt-util -Dversion=1.0 -Dpackaging=jar -DgeneratePom=true

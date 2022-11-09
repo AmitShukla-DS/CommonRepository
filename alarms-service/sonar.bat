@@ -1,0 +1,1 @@
+mvn clean verify sonar:sonar   -Dsonar.projectKey=alarms-service  -Dsonar.host.url=http://35.170.91.154:9000   -Dsonar.login=9244a1c931278d42aa53297bc2036bed934ae4f5
