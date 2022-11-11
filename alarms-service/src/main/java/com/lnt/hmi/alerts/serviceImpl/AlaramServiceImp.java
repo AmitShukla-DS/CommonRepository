@@ -60,9 +60,13 @@ public class AlaramServiceImp implements AlarmService {
 	public String cleareAndAcknowldgeAlarams(AckClearAlerts ackClearAlerts ) {
 		String response = "Success";
 		try{
-			
+			for(int i:ackClearAlerts.getIds()) {
+				System.out.println(i);
+			}
 			List<Integer> ackIdsList = alarmDao.findIdByIsAcknowledgeAndIdIn("N", ackClearAlerts.getIds());
-
+			for(int i:ackIdsList) {
+				System.out.println(i);
+			}
 			alarmDao.acknowldgeAlarms("Y", new Timestamp(new Date().getTime()),ackClearAlerts.getUserId(), ackIdsList);
 			
 			if(ackClearAlerts.getIsCleared() != null &&  ackClearAlerts.getIsCleared().equalsIgnoreCase("Y")) {
@@ -104,10 +108,6 @@ public class AlaramServiceImp implements AlarmService {
 	public List<AlertNotifications> getNonNotifiedAlert() {
 		List<AlertNotifications> alertNotificationsList =  alarmDao.findByIsNotified("N");
 		alarmDao.notifyAlerts();
-		alarmDao.toasterAlerts();
 		return alertNotificationsList;
 	}
-
-
-	
 }

@@ -9,10 +9,10 @@ public class EnvironmentVariableGroup {
 
 	
 
-	public static final String  ESS_EVSE_DB_HOST = "ESS_EVSE_DB_HOST";
-	public static final String  ESS_EVSE_DB_PORT = "ESS_EVSE_DB_PORT";
-	public static final String  ESS_EVSE_DB_NAME = "ESS_EVSE_DB_NAME";
-	public static final String  ESS_EVSE_DB_USER = "ESS_EVSE_DB_USER";
-	public static final String  ESS_EVSE_DB_PASSWORD = "ESS_EVSE_DB_PASSWORD";
+	public static final String DB_HOST = "DB_HOST";
+	public static final String DB_PORT = "DB_PORT";
+	public static final String DB_NAMES = "DB_NAMES"; 
+	public static final String DB_USER = "DB_USER";
+	public static final String DB_PASSWORD = "DB_PASSWORD";
 	
 }

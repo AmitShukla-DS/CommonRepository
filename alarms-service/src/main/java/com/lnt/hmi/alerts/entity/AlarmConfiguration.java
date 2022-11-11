@@ -1,12 +1,17 @@
 package com.lnt.hmi.alerts.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "lntds_alert_register_map")
@@ -23,6 +28,9 @@ public class AlarmConfiguration {
 	@Column(name = "value")
 	private Integer value;
 
+	// asset_id
+//	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//	@JoinColumn(name = "asset_id")
 	@Column(name = "asset_id")
 	private String assets;
 
@@ -35,22 +43,14 @@ public class AlarmConfiguration {
 	@Column(name = "alert_message")
 	private String alertMessage;
 
+	// severity
+	//@ManyToOne(fetch = FetchType.EAGER)
+	//@JoinColumn(name = "severity", nullable = false)
 	@Column(name = "severity")
 	private String severity;
-	
-	@Column(name = "is_toaster")
-	private Boolean isToaster;
 
 	public Integer getId() {
 		return id;
-	}
-
-	public Boolean getIsToaster() {
-		return isToaster;
-	}
-
-	public void setIsToaster(Boolean isToaster) {
-		this.isToaster = isToaster;
 	}
 
 	public void setId(Integer id) {

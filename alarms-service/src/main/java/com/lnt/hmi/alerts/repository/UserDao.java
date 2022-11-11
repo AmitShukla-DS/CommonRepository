@@ -7,6 +7,7 @@
  **/
 package com.lnt.hmi.alerts.repository;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -19,6 +20,7 @@ import java.sql.Timestamp;
 import java.util.List;
 
 @Repository
+@Qualifier("users")
 public interface UserDao extends CrudRepository<Users, Integer> {
 
     // @Query("select a from Users a")

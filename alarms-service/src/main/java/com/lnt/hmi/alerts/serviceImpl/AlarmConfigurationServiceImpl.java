@@ -85,7 +85,6 @@ else
 			 alarmConfiguration.setRegisterNo(dto.getRegisterNo());
 			 alarmConfiguration.setValue(dto.getValue());
 			 alarmConfiguration.setAssets(dto.getAssets());
-			 alarmConfiguration.setIsToaster(dto.getIsToaster());
 			 
 			return alarmConfigurationDao.save(alarmConfiguration);
 		 } else 

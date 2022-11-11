@@ -15,16 +15,6 @@ public class AlarmConfigurationDto {
 	private Integer registerNo;
 	
 	private Integer value;
-	
-	private Boolean isToaster;
-
-	public Boolean getIsToaster() {
-		return isToaster;
-	}
-
-	public void setIsToaster(Boolean isToaster) {
-		this.isToaster = isToaster;
-	}
 
 	public String getAlertName() {
 		return alertName;

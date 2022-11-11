@@ -22,17 +22,17 @@
 	 * @Bean public DataSource getDataSource() throws Exception{
 	 * 
 	 * EncryptDecryptUtil encryptDecryptUtil = new EncryptDecryptUtil(); String
-	 * dbPass = encryptDecryptUtil.decrypt(getenv(EnvironmentVariableGroup.
-	 * ESS_EVSE_DB_PASSWORD));
+	 * dbPass =
+	 * encryptDecryptUtil.decrypt(getenv(EnvironmentVariableGroup.DB_PASSWORD));
 	 * 
 	 * //@SuppressWarnings("rawtypes") DataSourceBuilder<?> dataSourceBuilder =
 	 * DataSourceBuilder.create();
 	 * dataSourceBuilder.driverClassName("com.mysql.jdbc.Driver");
-	 * dataSourceBuilder.url("jdbc:mysql://"+getenv(EnvironmentVariableGroup.
-	 * ESS_EVSE_DB_HOST)+":"+getenv(EnvironmentVariableGroup.ESS_EVSE_DB_PORT)+"/"+
-	 * getenv(EnvironmentVariableGroup.ESS_EVSE_DB_NAME));
-	 * dataSourceBuilder.username(getenv(EnvironmentVariableGroup.ESS_EVSE_DB_USER))
-	 * ; dataSourceBuilder.password(dbPass); return dataSourceBuilder.build(); }
+	 * dataSourceBuilder.url("jdbc:mysql://"+getenv(EnvironmentVariableGroup.DB_HOST
+	 * )+":"+getenv(EnvironmentVariableGroup.DB_PORT)+"/"+getenv(
+	 * EnvironmentVariableGroup.DB_NAMES));
+	 * dataSourceBuilder.username(getenv(EnvironmentVariableGroup.DB_USER));
+	 * dataSourceBuilder.password(dbPass); return dataSourceBuilder.build(); }
 	 * 
 	 * private static String getenv(String variable) { return ((Function<String,
 	 * String>) System::getenv).apply(variable); }

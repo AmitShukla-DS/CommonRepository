@@ -21,7 +21,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.lnt.EncryptDecryptUtil;
 
 @Configuration
-@EnableJpaRepositories(basePackages = "com.lnt.hmi.alerts.repository", transactionManagerRef = "transcationManager", entityManagerFactoryRef = "entityManager")
+@EnableJpaRepositories(basePackages = "com.lnt.hmi.logviewservice.dao", transactionManagerRef = "transcationManager", entityManagerFactoryRef = "entityManager")
 @EnableTransactionManagement
 public class DataSourceConfig {
 
@@ -36,9 +36,6 @@ public class DataSourceConfig {
 		String dbString = getenv(EnvironmentVariableGroup.DB_NAMES);
 		
 		String[] dbArray = dbString.split(",");
-		for(String dbname : dbArray ) {
-			System.out.println(dbname);
-		}
 		for( String dbname : dbArray ) {
 			DataSource  DS = createDataSource(dbname);
 			dataSourceMap.put(dbname, DS);
@@ -53,8 +50,6 @@ public class DataSourceConfig {
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
 		dataSource.setUrl("jdbc:mysql://" + getenv(EnvironmentVariableGroup.DB_HOST) + ":"
 				+ getenv(EnvironmentVariableGroup.DB_PORT) + "/" + dbname );
-		System.out.println(dbname);
-		System.out.println(getPassword());
 		dataSource.setUsername(getenv(EnvironmentVariableGroup.DB_USER));
 		dataSource.setPassword(getPassword());
 		return dataSource;
@@ -65,7 +60,7 @@ public class DataSourceConfig {
 	@Bean(name = "entityManager")
 	public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean(EntityManagerFactoryBuilder builder)
 			throws Exception {
-		return builder.dataSource(dataSource()).packages("com.lnt.hmi.alerts").build();
+		return builder.dataSource(dataSource()).packages("com.lnt.hmi.usermanagement").build();
 	}
 
 	// enables datasources for transcationManager
@@ -82,10 +77,7 @@ public class DataSourceConfig {
 
 	// to decrypt password from environment variables
 	private String getPassword() throws Exception {
-		System.out.println(getenv(EnvironmentVariableGroup.DB_PASSWORD));
 		EncryptDecryptUtil encryptDecryptUtil = new EncryptDecryptUtil();
-		System.out.println(encryptDecryptUtil.decrypt(getenv(EnvironmentVariableGroup.DB_PASSWORD)));
-
 		return encryptDecryptUtil.decrypt(getenv(EnvironmentVariableGroup.DB_PASSWORD));
 
 	}

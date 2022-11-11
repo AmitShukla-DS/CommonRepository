@@ -15,7 +15,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 @Entity
 @Table(name = "lntds_alert_notifications")
 public class AlertNotifications {
@@ -23,69 +22,41 @@ public class AlertNotifications {
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
 	@Column(name = "record_timestamp")
 	private Timestamp recordTimestamp;
-	
-	@Column(name = "asset_type")
+	@Column(name="asset_type")
 	private String assetTypes;
-	
 	@Column(name = "asset_id")
 	private String assetId;
-	
 	@Column(name = "condition_id")
-	private Integer conditionId;
-	
+	private String conditionId;
 	@Column(name = "alert_type")
 	private String alertType;
-	
-	@Column(name = "alert_source")
+		@Column(name = "alert_source")
 	private String alertSource;
-	
 	@Column(name = "severity")
 	private String severity;
-	
 	@Column(name = "alert_message")
 	private String alertMessage;
-	
 	@Column(name = "is_acknowledge")
 	private String isAcknowledge;
-	
 	@Column(name = "ack_timestamp")
 	private Timestamp ackTimestamp;
-	
-	@Column(name = "ack_by")
+	@Column(name="ack_by")
 	private String ackBy;
-	
 	@Column(name = "is_cleared")
 	private String isCleared;
-	
 	@Column(name = "cleared_timestamp")
 	private Timestamp clearedTimestamp;
-	
 	@Column(name = "cleared_by")
 	private String clearedBy;
-	
 	@Column(name = "alert_name")
 	private String alertName;
-	
-	@Column(name = "alert_count")
+		@Column(name = "alert_count")
 	private Integer alertCount;
 
 	@Column(name = "is_notified")
 	private String isNotified;
-	
-	@Column(name = "is_toaster")
-	private Boolean isToaster;
-
-	public Boolean getIsToaster() {
-		return isToaster;
-	}
-
-	public void setIsToaster(Boolean isToaster) {
-		this.isToaster = isToaster;
-	}
-
 	public Integer getId() {
 		return id;
 	}
@@ -118,11 +89,11 @@ public class AlertNotifications {
 		this.assetId = assetId;
 	}
 
-	public Integer getConditionId() {
+	public String getConditionId() {
 		return conditionId;
 	}
 
-	public void setConditionId(Integer conditionId) {
+	public void setConditionId(String conditionId) {
 		this.conditionId = conditionId;
 	}
 

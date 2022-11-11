@@ -24,6 +24,9 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.lnt.hmi.alerts.serviceImpl.CustomUserDetailsService;
 import com.lnt.hmi.alerts.util.JwtUtil;
+import com.lnt.hmi.alerts.config.LNTLoggerConfig;
+
+import com.lnt.hmi.alerts.dataSource.DataSourceContextHolder;
 
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
@@ -41,6 +44,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 		// get jwt
 		// Bearer
 		// validate
+		String hostDB = request.getHeader("hostDB");
+		LNTLoggerConfig.DATABASE=request.getHeader("hostDB");
+		LNTLoggerConfig.PRODUCT_NAME=request.getHeader("application");
+		DataSourceContextHolder.setDataSourceContext(hostDB);
 		String requestTokenHeader = request.getHeader("Authorization");
 		String username = null;
 		String jwtToken = null;

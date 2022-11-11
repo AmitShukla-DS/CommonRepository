@@ -53,27 +53,9 @@ public interface AlarmDao extends CrudRepository<AlertNotifications, Integer>{
 
 	@Query("SELECT a from AlertNotifications a WHERE a.id in (?1) ORDER BY recordTimestamp DESC")
 	List<AlertNotifications> findById(List<Integer> idsList);
-	
-	
 	List<AlertNotifications> findByIsNotified(String isNotified);
 
 	@Query("UPDATE AlertNotifications a SET isNotified='Y' WHERE a.isNotified = 'N'")
 	@Modifying
 	void notifyAlerts();
-	
-
-	
-	
-	@Query(value="update lntds_alert_notifications as a \r\n"
-			+ "inner join lntds_alert_register_map b\r\n"
-			+ " on b.id=a.condition_id\r\n"
-			+ " set a.is_toaster=b.is_toaster;",nativeQuery = true)
-	@Modifying
-	void toasterAlerts();
-	
-	
-	@Query("SELECT a from AlertNotifications a INNER JOIN AlarmConfiguration m on a.conditionId = m.id WHERE a.isNotified = 'N' AND m.isToaster = 1")
-	
-	//@Query("SELECT a from AlertNotifications where a.isAcknowledge=='N' AND a.isToaster=='1' AND a.isNotified = 'N'")
-	List<AlertNotifications> findByIsNotifiedToaster(String string);
 }

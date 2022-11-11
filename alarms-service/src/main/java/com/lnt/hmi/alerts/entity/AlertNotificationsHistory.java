@@ -23,12 +23,8 @@ public class AlertNotificationsHistory {
     private String assetTypes;
     @Column(name = "asset_id")
     private String assetId;
-//    @Column(name = "condition_id")
-//    private String conditionId;
     @Column(name = "condition_id")
-    private Integer conditionId;
-    
-    
+    private String conditionId;
     @Column(name = "alert_type")
     private String alertType;
     @Column(name = "alert_source")
@@ -88,27 +84,19 @@ public class AlertNotificationsHistory {
         this.assetId = assetId;
     }
 
-//    public String getConditionId() {
-//        return conditionId;
-//    }
-//
-//    public void setConditionId(String conditionId) {
-//        this.conditionId = conditionId;
-//    }
+    public String getConditionId() {
+        return conditionId;
+    }
+
+    public void setConditionId(String conditionId) {
+        this.conditionId = conditionId;
+    }
 
     public String getAlertType() {
         return alertType;
     }
 
-    public Integer getConditionId() {
-		return conditionId;
-	}
-
-	public void setConditionId(Integer conditionId) {
-		this.conditionId = conditionId;
-	}
-
-	public void setAlertType(String alertType) {
+    public void setAlertType(String alertType) {
         this.alertType = alertType;
     }
 

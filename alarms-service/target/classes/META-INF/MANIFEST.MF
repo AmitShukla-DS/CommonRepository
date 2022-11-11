@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Build-Jdk-Spec: 15
+Implementation-Title: user-server
+Implementation-Version: 1.0.0
+Implementation-Vendor: LNT DS
+Created-By: Maven Integration for Eclipse
+
